@@ -2,10 +2,8 @@ package com.magneto.mutant.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
-import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,7 +32,8 @@ public class Human implements Serializable {
 	@Column(unique = true)
 	@Lob
 	private String dna;
-	private boolean mutant; 
+	private boolean mutant;
+	private String result;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date registration_date;
 	

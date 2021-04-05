@@ -1,6 +1,7 @@
 package com.magneto.mutant.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,10 +12,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Stats  implements Serializable{
-	
-	private int count_mutant_dna;
-	private int count_human_dna;
-	private double ratio;
+public class HumanDto  implements Serializable {
+	private List<String> dna;
 	private static final long serialVersionUID = 1L;
 }

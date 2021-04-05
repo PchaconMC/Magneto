@@ -1,11 +1,10 @@
 package com.magneto.mutant.service;
 
-import java.util.List;
 
-
-import com.magneto.mutant.dto.Stats;
+import com.magneto.mutant.dto.HumanDto;
+import com.magneto.mutant.dto.StatsDto;
 
 public interface IHumanService {
-	public Stats getStats();
-	public boolean isMutant(List<String> dna);
+	public StatsDto getStats();
+	public boolean isMutant(HumanDto humanDto);
 }

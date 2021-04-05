@@ -1,7 +1,6 @@
 package com.magneto.mutant.controller;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,24 +14,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
 
-import com.magneto.mutant.dto.Stats;
+import com.magneto.mutant.dto.HumanDto;
+import com.magneto.mutant.dto.StatsDto;
 import com.magneto.mutant.service.IHumanService;
 import com.magneto.tool.MagnetoError;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("")
 public class HumanController {
 
 	@Autowired
 	private IHumanService humanService;
 
-	@PostMapping("/")
-	public ResponseEntity<?> isMutant(@RequestBody List<String> dna) {
+	@PostMapping("mutant/")
+	public ResponseEntity<?> isMutant(@RequestBody HumanDto humanDto) {
 		Map<String, Object> response = new HashMap<>();
 		boolean mutant = false;
 		HttpStatus status;
 		try {
-			mutant = humanService.isMutant(dna);
+			mutant = humanService.isMutant(humanDto);
 			if(mutant)
 				status =HttpStatus.OK;
 			else
@@ -45,13 +45,13 @@ public class HumanController {
 			throw new MagnetoError(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR,
 					RequestContextHolder.currentRequestAttributes().getSessionId());
 		}
-		response.put("mensaje", "Para este Humano se ha validado su secuencia de ADN!!");
+		response.put("mensaje", "Para este Humano, se ha validado su secuencia de ADN!!");
 		response.put("mutant", mutant);
 		return new ResponseEntity<Map<String, Object>>(response, status);
 	}
 
-	@GetMapping("/stats")
-	public Stats getStats() {
+	@GetMapping("stats")
+	public StatsDto getStats() {
 		return humanService.getStats();
 	}
 
