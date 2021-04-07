@@ -19,9 +19,14 @@
 		<spring-cloud.version>2020.0.1</spring-cloud.version>
 	</properties>
 	<dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
 		<dependency>
 			<groupId>com.magneto</groupId>
-			<artifactId>magneto-tool</artifactId>		
+			<artifactId>magneto-tool</artifactId>
 			<version>1.0.0.1</version>
 		</dependency>
 		<dependency>
