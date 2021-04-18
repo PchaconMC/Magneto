@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>com.magneto</groupId>
 	<artifactId>magneto-eureka</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>magneto-eureka</name>
 	<description>Registrar y localiza microservicios existentes de Magneto, informa de su localización, su estado y datos relevantes. Atiende el balanceo de carga y tolerancia a fallos.</description>
 	<properties>

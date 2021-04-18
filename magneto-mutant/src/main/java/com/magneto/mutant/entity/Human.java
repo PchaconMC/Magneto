@@ -24,13 +24,12 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="human")
+@Table(name="human",schema = "mutant")
 public class Human implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(unique = true)
-	@Lob
+	@Column(length = 1000)
 	private String dna;
 	private boolean mutant;
 	private String result;

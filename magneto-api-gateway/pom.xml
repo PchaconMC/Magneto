@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.magneto</groupId>
 	<artifactId>magneto-api-gateway</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1</version>
 	<name>magneto-api-gateway</name>
 	<description>Api Gateway de enrutamiento para los microservicios de Magneto</description>
 	<properties>
