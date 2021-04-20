@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "3ad7642b-98f8-4916-aec9-e56edf773e52",
+		"name": "Magneto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Mutant",
+			"item": [
+				{
+					"name": "isMutant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"dna\":[\"ATGCGA\",\"CAGTGC\",\"TTATGT\",\"AGAAGG\",\"CCCCTA\",\"TCACTG\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://82.223.99.25:8090/magneto/mutant/",
+							"protocol": "http",
+							"host": [
+								"82",
+								"223",
+								"99",
+								"25"
+							],
+							"port": "8090",
+							"path": [
+								"magneto",
+								"mutant",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://82.223.99.25:8090/magneto/stats",
+							"protocol": "http",
+							"host": [
+								"82",
+								"223",
+								"99",
+								"25"
+							],
+							"port": "8090",
+							"path": [
+								"magneto",
+								"stats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
