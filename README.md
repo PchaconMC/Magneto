@@ -50,7 +50,7 @@ A nivel de contenedores tenemos tres, uno hace referencia a la **magneto-api-gat
 Podemos ver el servidor  [**Magneto Eureka**](http://82.223.99.25:8761/) las instancias desplegadas.
 
 ### Pruebas Unitarias y de Integración
-Se puede navegar por el reporte de pruebas [**Unitarias Magneto**](file:///E:/Test-MercadoLibre/back-end/magneto-mutant/target/site/jacoco-ut/index.html) de  generado por el framewor JaCoCo.
+Se puede navegar por el reporte de pruebas [**Unitarias Magneto**](https://pinkbook.veoweb.site/) de generado por el framewor JaCoCo.
 Para el proyecto se logró la  cobertura de código de la siguiente manear:
     - Proyecto magneto-rool: 85.7%
     - Proyecto magneto-mutant: 97.6%
