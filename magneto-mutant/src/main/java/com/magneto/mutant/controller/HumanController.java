@@ -31,7 +31,7 @@ import io.swagger.annotations.ApiOperation;
  *
  */
 @RestController
-@RequestMapping("")
+@RequestMapping("/")
 public class HumanController {
 
 	@Autowired
@@ -75,7 +75,7 @@ public class HumanController {
 
 	
 	@ApiOperation(value = "Estadisticas para Magneto",notes = "Nos permite reportar las estadísticas de las verificaciones de ADN (total de humanos, total de mutantes y su ratio)")
-	@GetMapping("stats")
+	@GetMapping("stats/")
 	public StatsDto getStats() {
 		return humanService.getStats();
 	}

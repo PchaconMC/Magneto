@@ -31,6 +31,10 @@ class HumanImplTest {
     @Test
     void getStats() {
     	
+    	StatsDto statsDto = humanService.getStats();
+    	//Test para cuanto el total de humanos es cero 
+    	assertEquals(1D,statsDto.getCount_human_dna());
+    	
     	boolean mutant = false;
     	mutant = humanService.isMutant(Data.humanDto_001); 
     	assertFalse(mutant);
@@ -43,7 +47,7 @@ class HumanImplTest {
     	mutant = humanService.isMutant(Data.mutantDto_001);
     	assertTrue(mutant);
     	
-        StatsDto statsDto = humanService.getStats();
+        statsDto = humanService.getStats();
 
         //Test para el total de humanos 
        assertEquals(4D,statsDto.getCount_human_dna());

@@ -13,7 +13,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import com.magneto.mutant.dao.IHumanDao;
 import com.magneto.mutant.entity.Human;
 
-@DataJpaTest
+@DataJpaTest()
 public class IntegrationJpaTest {
 	
 	@Autowired
