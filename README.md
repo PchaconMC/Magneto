@@ -115,5 +115,9 @@ Es un diagrama de clases de alto nivel, los métodos que se ven en el diagrama *
 
 # Notas
 
-- La aplicación se construyó utilizando Eclipse IDE para como editor de codigo fuente.
-- DBeaver para como manager de base de datos
+- La aplicación se construyó utilizando **Eclipse IDE** para como editor de codigo fuente.
+- **DBeaver** para como manager de base de datos
+- **Postman** para testear los microservicios
+- **SourceTree** como cliente git para la administración del repositorio de código.
+- **FileZilla** para subir administrar imagenes de los contenedores Docker al servidor
+- **Putty** como cliente SSH para la configuración y administración del servidor VPS
