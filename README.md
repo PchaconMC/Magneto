@@ -7,8 +7,8 @@ ___________________________________________________________________
 # Pre-requisitos
 
 - VPS con sistema operativo Ubuntu 20.04
-- Instalar **[*Docker*](https://docs.docker.com/get-docker/)**
-- Instalar **[*PostgreSql - Ubuntu 20.04*](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-20-04-es)**
+- Instalar **![*Docker*](https://docs.docker.com/get-docker/)**
+- Instalar **![*PostgreSql - Ubuntu 20.04*](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-20-04-es)**
 
 Se deben habilitar los puertos (8090) para el Api Gateway y (8761) Para visializar las instancias de los microservicios activas, este ultimo es opcional.
 
@@ -85,8 +85,8 @@ Es un diagrama de clases de alto nivel, los métodos que se ven en el diagrama *
 
 # Instrucciones de Usuo
 
-- Para usar la **App Magneto** se debe acceder a la siguiente url  [**Swagger Magneto**](http://82.223.99.25:8090/magneto/swagger-ui.html#/human-controller), esta consta de una pequeña interface de usuario realizada a través de **swagger** para poder facilitar los usos de los servicios
-- Los test funcionales a los endpoints fueron realizados con Postman, se encuentran en la colección [**Magneto.postman_collection.json**](doc/Magneto.postman_collection.json)
+- Para usar la **App Magneto** se debe acceder a la siguiente url  ![**Swagger Magneto**](http://82.223.99.25:8090/magneto/swagger-ui.html#/human-controller), esta consta de una pequeña interface de usuario realizada a través de **swagger** para poder facilitar los usos de los servicios
+- Los test funcionales a los endpoints fueron realizados con Postman, se encuentran en la colección ![**Magneto.postman_collection.json**](doc/Magneto.postman_collection.json)
 
 # Notas
 
