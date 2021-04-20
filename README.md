@@ -111,7 +111,7 @@ Es un diagrama de clases de alto nivel, los métodos que se ven en el diagrama *
 # Instrucciones de Usuo
 
 - Para usar la **App Magneto** se debe acceder a la siguiente url  [**Swagger Magneto**](http://82.223.99.25:8090/magneto/swagger-ui.html#/human-controller), esta consta de una pequeña interface de usuario realizada a través de **swagger** para poder facilitar los usos de los servicios
-- Los test funcionales a los endpoints fueron realizados con Postman, se encuentran en la colección (doc/Magneto.postman_collection.json)
+- Los test funcionales a los endpoints fueron realizados con Postman, se encuentran en la colección [**Magneto.postman_collection.json**](doc/Magneto.postman_collection.json)
 
 # Notas
 
