@@ -51,7 +51,7 @@ Podemos ver el servidor  [**Magneto Eureka**](http://82.223.99.25:8761/) las ins
 
 ### Pruebas Unitarias y de Integración
 Se puede navegar por el reporte de pruebas [**Unitarias Magneto**](https://pinkbook.veoweb.site/) de generado por el framewor JaCoCo.
-Para el proyecto se logró la  cobertura de código de la siguiente manear:
+Para el proyecto se logró la  cobertura de código de la siguiente manera:
     - Proyecto magneto-tool: 85.7%
     - Proyecto magneto-mutant: 97.6%
 
