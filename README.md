@@ -14,13 +14,9 @@ Se deben habilitar los puertos (8090) para el Api Gateway y (8761) Para visializ
 
 # Instalación
 
-Se deben generar las imagenes a partir de los docker file de cada proyecto, existen tres proyectos de los cuales debemos generar las imagenes.
-    -**Magneto/magneto-api-gateway/Dockerfile**
-    -**Magneto/magneto-eureka/Dockerfile**
-    -**Magneto/magneto-mutant/Dockerfile**
-
-A continuación se detalla el procedimiento:
--1. ----------------Magneto Network --------------------
+Se deben generar las imagenes a partir de los docker file de cada proyecto, existen tres proyectos de los cuales debemos generar las imagenes, a continuación se detalla el procedimiento:
+```
+1. ----------------Magneto Network --------------------
 --Creamos la red
 docker network create magnetonetwork
 2. ----------------------------  Magneto Eureka----------------------------
@@ -31,20 +27,22 @@ docker build -f Dockerfile -t magneto-eureka:v1 .
 --Levantamos el contenedor
 docker run -p 8761:8761 -i -t --name magneto-eureka --network magnetonetwork magneto-eureka:v1
 docker save -o E:\Test-MercadoLibre\images\magneto-eureka.tar magneto-eureka:v1
-2. ----------------------------  Magneto API Gateway ----------------------------
+3. ----------------------------  Magneto API Gateway ----------------------------
 --Nos ubicamos en el raiz del proyecto
 CD E:\Test-MercadoLibre\back-end\magneto-api-gateway
 --Creamos la imagen docker
 docker build -f Dockerfile -t magneto-api-gateway:v1 .
 --Levantamos el contenedor
 docker run -p 8090:8090 -i -t --name magneto-api-gateway --network magnetonetwork magneto-api-gateway:v1
-3. ---------------------------(Microservicio mutant)-----------------------------
+4. ---------------------------(Microservicio mutant)-----------------------------
 --Nos ubicamos en el raiz del proyecto
 CD E:\Test-MercadoLibre\back-end\magneto-mutant
 --Creamos la imagen docker
 docker build -f Dockerfile -t magneto-mutant:v1 .
 --Levantamos el contenedor
 docker run -P -i -t --name magneto-mutant-02 --network magnetonetwork magneto-mutant:v1
+```
+
 ## 
 # Arquitectura
 
@@ -52,44 +50,22 @@ Para el diseño de la arquitectura se realizó la apuesta por diseñar una de ti
 
 ![Clean Architecture](ops/readme/ca.png?raw=true)
 
-# C4Model
-
-Para el diseño utilizamos diagramación por c4model
-
 ### Diagrama de contexto
 
 Pretendemos representar la imagen global de lo que se pretende solucionas y la interacción a muy alto nivel
 
-![Diagrama de contexto](ops/readme/dcontext.png?raw=true)
-
 ### Diagrama de Contenedores
 
-A nivel de contenedores tenemos únicamente tres, uno hace referencia a la **UI** generada por **SWAGGER** el cual usamos para documentar el API, otro a la aplicación al servicio REST hecho en **Java 11** con **Spring Boot** y por ultimo el contenedor de base de datos, para este caso usamos una base de datos **POSTGRESQL**, la ultima versión disponible hasta el momento.
+A nivel de contenedores tenemos tres, uno hace referencia a la **magneto-api-gateway:** quien cuemple la función de enrutamiento para los microservicios de Magneto. **magneto-eureka:** Registrar y localiza microservicios existentes de Magneto, informa de su localización, su estado y datos relevantes. Atiende el balanceo de carga y tolerancia a fallos, **magneto-mutant:** Microservicio que permite dar solución a los requerimientos del cliente, detecta si un humano es mutante basándose en su secuencia de su ADN, de este ultimo se levantaron dos instancias en el servidor para dar solicitud al requerimiento no funciónal y que permita recibir fluctuaciones agresivas de tráfico.
 
-![Diagrama de contenedores](ops/readme/dcontenedor.png?raw=true)
-### Diagrama de Componentes
+```
+Podemos ver el servidor Magneto Eureka en el siguiente **[*Link*](http://82.223.99.25:8761/)**, alli se podran observar las instancias desplegadas.
+```
+### Pruebas Unitarias y de Integración
 
-Se definieron 4 componentes principales:
-
-- Endpoint
-    - Controladores
-    - Configuración de los codigos de estado de respuestas HTTP
-- Dataprovider
-    - contiene el manejo dado a la persistencia de base de datos, en este caso la creación de una tabla y el Mapeo contra los DTO del Core
-- Configuration
-    - Contiene la configuración de los componentes de Endpoint  y Dataprovider
-        - Base de datos, para esta ultima se utilizó una estrategia de flyaway para porder ir generando versions de la persistenciab
-        - Configuracion Swagger
-        - CORS
-        - Persistencia con flyaway para el versionamiento de base de datos
-- Core
-    - Contiene la lógica de negocio
-    - Interfaces de entrada y salidas
-    - DTOs
-    - Pruebas unitarias
-        - Cobertura de código:
-            -   magneto-rool: 85.7%
-            -   magneto-mutant: 97.6%
+Par el proyecto se logró la  cobertura de código de la siguiente manear:
+    - Proyecto magneto-rool: 85.7%
+    - Proyecto magneto-mutant: 97.6%
 
 ![Diagrama de componentes](img/code-coverage_1.JPG?raw=true)
 
@@ -97,7 +73,6 @@ Se definieron 4 componentes principales:
 
 Es un diagrama de clases de alto nivel, los métodos que se ven en el diagrama **no son los implementados en las clases**, lo que se pretende con este diagrama es ver la interacción entre las distintas clases del **Core**
 
-![Diagrama de core](ops/readme/core.png?raw=true)
 # Despliegue
 
 - El despliegue fue realizado en un Servidor Cloud VPS con un sitema operativo Ubuntu 20.04 con las siguientes características:
