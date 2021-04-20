@@ -26,7 +26,6 @@ CD E:\Test-MercadoLibre\back-end\magneto-eureka
 docker build -f Dockerfile -t magneto-eureka:v1 .
 --Levantamos el contenedor
 docker run -p 8761:8761 -i -t --name magneto-eureka --network magnetonetwork magneto-eureka:v1
-docker save -o E:\Test-MercadoLibre\images\magneto-eureka.tar magneto-eureka:v1
 3. ----------------------------  Magneto API Gateway ----------------------------
 --Nos ubicamos en el raiz del proyecto
 CD E:\Test-MercadoLibre\back-end\magneto-api-gateway
@@ -43,15 +42,6 @@ docker build -f Dockerfile -t magneto-mutant:v1 .
 docker run -P -i -t --name magneto-mutant-02 --network magnetonetwork magneto-mutant:v1
 ```
 
-## 
-# Arquitectura
-
-Para el diseño de la arquitectura se realizó la apuesta por diseñar una de tipo **Clean Architecture**, siendo el componente **core** el que posee la lógica de negocio, dicho componente tiene entradas y saldas a traves de interfaces, la inyección de dependencias que se usaron fueron las proporcionadas por Spring Boot
-
-### Diagrama de contexto
-
-Pretendemos representar la imagen global de lo que se pretende solucionas y la interacción a muy alto nivel
-
 ### Diagrama de Contenedores
 
 A nivel de contenedores tenemos tres, uno hace referencia a la **magneto-api-gateway:** quien cuemple la función de enrutamiento para los microservicios de Magneto. **magneto-eureka:** Registrar y localiza microservicios existentes de Magneto, informa de su localización, su estado y datos relevantes. Atiende el balanceo de carga y tolerancia a fallos, **magneto-mutant:** Microservicio que permite dar solución a los requerimientos del cliente, detecta si un humano es mutante basándose en su secuencia de su ADN, de este ultimo se levantaron dos instancias en el servidor para dar solicitud al requerimiento no funciónal y que permita recibir fluctuaciones agresivas de tráfico.
@@ -67,10 +57,6 @@ Par el proyecto se logró la  cobertura de código de la siguiente manear:
 
 ![Pruebas Unitarias](img/code-coverage_1.JPG?raw=true)
 
-### Diagrama de Clases de  Alto Nivel (CORE)
-
-Es un diagrama de clases de alto nivel, los métodos que se ven en el diagrama **no son los implementados en las clases**, lo que se pretende con este diagrama es ver la interacción entre las distintas clases del **Core**
-
 # Despliegue
 
 - El despliegue fue realizado en un Servidor Cloud VPS con un sitema operativo Ubuntu 20.04 con las siguientes características:
@@ -83,6 +69,35 @@ Es un diagrama de clases de alto nivel, los métodos que se ven en el diagrama *
 
 - Para usar la **App Magneto** se debe acceder a la siguiente url  [**Swagger Magneto**](http://82.223.99.25:8090/magneto/swagger-ui.html#/human-controller), esta consta de una pequeña interface de usuario realizada a través de **swagger** para poder facilitar los usos de los servicios
 - Los test funcionales a los endpoints fueron realizados con Postman, se encuentran en la colección [**Magneto.postman_collection.json**](doc/Magneto.postman_collection.json)
+
+Para detectar si un humano es mutante enviando la secuencia de ADN mediante, utilice el siguiente endpoint
+```
+**HTTP POST** http://82.223.99.25:8090/magneto/mutant/
+
+Json envía:
+    {
+    “dna”:["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]
+    }
+    
+Json respuesta:
+    {
+        "mensaje": "Para este Humano, se ha validado su secuencia de ADN!!",
+        "mutant": true
+    }
+```
+
+Consulta las estadísticas de las verificaciones de ADN:
+```
+**HTTP GET** http://82.223.99.25:8090/magneto/stats
+
+Json Respuesta:
+{
+    "count_mutant_dna": 3.0,
+    "count_human_dna": 4.0,
+    "ratio": 0.75
+}
+```
+
 
 # Notas
 
