@@ -56,9 +56,9 @@ Pretendemos representar la imagen global de lo que se pretende solucionas y la i
 
 A nivel de contenedores tenemos tres, uno hace referencia a la **magneto-api-gateway:** quien cuemple la función de enrutamiento para los microservicios de Magneto. **magneto-eureka:** Registrar y localiza microservicios existentes de Magneto, informa de su localización, su estado y datos relevantes. Atiende el balanceo de carga y tolerancia a fallos, **magneto-mutant:** Microservicio que permite dar solución a los requerimientos del cliente, detecta si un humano es mutante basándose en su secuencia de su ADN, de este ultimo se levantaron dos instancias en el servidor para dar solicitud al requerimiento no funciónal y que permita recibir fluctuaciones agresivas de tráfico.
 
-```
-Podemos ver el servidor Magneto Eureka en el siguiente [**Link**](http://82.223.99.25:8761/), alli se podran observar las instancias desplegadas.
-```
+
+Podemos ver el servidor  [**Magneto Eureka**](http://82.223.99.25:8761/) las instancias desplegadas.
+
 ### Pruebas Unitarias y de Integración
 
 Par el proyecto se logró la  cobertura de código de la siguiente manear:
