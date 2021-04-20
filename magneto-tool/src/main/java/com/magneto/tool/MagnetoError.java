@@ -1,7 +1,11 @@
 package com.magneto.tool;
 
 import org.springframework.http.HttpStatus;
-
+/**
+ * Esta clase permite personalizar el manejo de errores segun estructura definida para Magneto
+ * @author: Pedro Antonio Chacon Garnica
+ * @version: 15/04/2021/A
+ */
 public class MagnetoError extends RuntimeException {
 	
 	private static final long serialVersionUID = 1L;
