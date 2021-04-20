@@ -7,8 +7,8 @@ ___________________________________________________________________
 # Pre-requisitos
 
 - VPS con sistema operativo Ubuntu 20.04
-- Instalar **![*Docker*](https://docs.docker.com/get-docker/)**
-- Instalar **![*PostgreSql - Ubuntu 20.04*](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-20-04-es)**
+- Instalar **[*Docker*](https://docs.docker.com/get-docker/)**
+- Instalar **[*PostgreSql - Ubuntu 20.04*](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-20-04-es)**
 
 Se deben habilitar los puertos (8090) para el Api Gateway y (8761) Para visializar las instancias de los microservicios activas, este ultimo es opcional.
 
@@ -48,8 +48,6 @@ docker run -P -i -t --name magneto-mutant-02 --network magnetonetwork magneto-mu
 
 Para el diseño de la arquitectura se realizó la apuesta por diseñar una de tipo **Clean Architecture**, siendo el componente **core** el que posee la lógica de negocio, dicho componente tiene entradas y saldas a traves de interfaces, la inyección de dependencias que se usaron fueron las proporcionadas por Spring Boot
 
-![Clean Architecture](ops/readme/ca.png?raw=true)
-
 ### Diagrama de contexto
 
 Pretendemos representar la imagen global de lo que se pretende solucionas y la interacción a muy alto nivel
@@ -67,7 +65,7 @@ Par el proyecto se logró la  cobertura de código de la siguiente manear:
     - Proyecto magneto-rool: 85.7%
     - Proyecto magneto-mutant: 97.6%
 
-![Diagrama de componentes](img/code-coverage_1.JPG?raw=true)
+![Pruebas Unitarias](img/code-coverage_1.JPG?raw=true)
 
 ### Diagrama de Clases de  Alto Nivel (CORE)
 
@@ -80,8 +78,6 @@ Es un diagrama de clases de alto nivel, los métodos que se ven en el diagrama *
     - RAM:8 GB
     - SSD:160 GB
     - Políticas de firewall: Linux + Plesk
-
-![Diagrama de despliegue](ops/readme/despliegue.png?raw=true)
 
 # Instrucciones de Usuo
 
