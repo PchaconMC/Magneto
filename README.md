@@ -1,4 +1,4 @@
-# Magneto Reclutamiento de Mutantes
+# Magneto Reclutamiento de Mutantes, para todos
 
 Magneto quiere reclutar la mayor cantidad de mutantes para poder luchar contra los X-Men. Este proyecto detecta si un
 humano es mutante basándose en su secuencia de ADN
