@@ -4,7 +4,7 @@ Magneto quiere reclutar la mayor cantidad de mutantes para poder luchar contra l
 humano es mutante basándose en su secuencia de ADN
 ___________________________________________________________________
 
-# Pre-requisitos
+# Pre-requisitos, para merge
 
 - VPS con sistema operativo Ubuntu 20.04.
 - Instalar **[*Docker*](https://docs.docker.com/get-docker/)**
