@@ -6,7 +6,7 @@ ___________________________________________________________________
 
 # Pre-requisitos
 
-- VPS con sistema operativo Ubuntu 20.04
+- VPS con sistema operativo Ubuntu 20.04.
 - Instalar **[*Docker*](https://docs.docker.com/get-docker/)**
 - Instalar **[*PostgreSql - Ubuntu 20.04*](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-20-04-es)**
 
